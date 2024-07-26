@@ -19,7 +19,13 @@ void Movie::addCastMembers(const Person& castMember) {
 }
 
 std::ostream& operator<<(std::ostream& strm, Movie& obj) {
-	strm << obj.getName() << " " << obj.getDirector() << " " << obj.getCast() << " " << obj.getRunTime();
+	strm << obj.getName() << " \n"
+		<< obj.getDirector().getFirstName() << " " << obj.getDirector().getLastName() << " \n"
+		<< "Cast: \n";
+	for (Person p : obj.getCast())
+		strm << p.getFirstName() << " " << p.getLastName() << "\n";
+	strm << "Running Time: " << obj.getRunTime() << "\n";
+	return strm;
 }
 
 std::string Movie::getName() {

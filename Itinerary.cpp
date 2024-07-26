@@ -2,10 +2,8 @@
 #include <cmath>
 #include <vector>
 
-City Itinerary::getCities() {
-	for (City& city : cities) {
-		return city;
-	}
+std::vector<City> Itinerary::getCities() {
+	return cities;
 }
 void Itinerary::addCity(const City& city) {
 	cities.push_back(city);
@@ -19,7 +17,9 @@ double Itinerary::getDistance(City city1, City city2) {
 
 Itinerary Itinerary ::operator+(Itinerary& right) {
 	Itinerary itinerary1;
-	itinerary1.cities = (*this).cities + right.cities;
-
+	for (City c : this->cities)
+		itinerary1.addCity(c);
+	for (City c : right.getCities())
+		itinerary1.addCity(c);
 	return itinerary1;
 }

@@ -36,7 +36,7 @@ int main() {
 	shutterIsland.addCastMembers(actor4);
 
 
-	std::cout << transformers;
+	std::cout << transformers << endl;
 	std::cout << shutterIsland;
 	
 
